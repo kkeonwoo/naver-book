@@ -31,27 +31,27 @@ app.get("https://keonwoo-naverbook.herokuapp.com/book/:bookname", (req, res) => 
   // res.json({ book: "express" });
 });
 
-app.get("https://keonwoo-naverbook.herokuapp.com/book02", (req, res) => {
-  const queryTxt = encodeURIComponent(req.query.bookname);
-  axios({
-    url: `https://openapi.naver.com/v1/search/book.json?query=${queryTxt}`,
-    headers: {
-      "X-Naver-Client-Id": NAVER_ID,
-      "X-Naver-Client-Secret": NAVER_SECRET_ID,
-    },
-  }).then(function (response) {
-    res.json(response.data);
-  });
-});
+// app.get("https://keonwoo-naverbook.herokuapp.com/book02", (req, res) => {
+//   const queryTxt = encodeURIComponent(req.query.bookname);
+//   axios({
+//     url: `https://openapi.naver.com/v1/search/book.json?query=${queryTxt}`,
+//     headers: {
+//       "X-Naver-Client-Id": NAVER_ID,
+//       "X-Naver-Client-Secret": NAVER_SECRET_ID,
+//     },
+//   }).then(function (response) {
+//     res.json(response.data);
+//   });
+// });
 
-app.get("/login", (req, res) => {
-  console.log(req.query);
-  if (req.query.id === "kwlee" && req.query.pw === "123123") {
-    res.json({ isLogged: true });
-  } else {
-    res.json({ isLogged: false });
-  }
-});
+// app.get("/login", (req, res) => {
+//   console.log(req.query);
+//   if (req.query.id === "kwlee" && req.query.pw === "123123") {
+//     res.json({ isLogged: true });
+//   } else {
+//     res.json({ isLogged: false });
+//   }
+// });
 
 app.listen(PORT, function () {
   console.log(`${PORT}에서 서버 대기중`);
