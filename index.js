@@ -2,7 +2,7 @@ const express = require("express"); // express를 가져오는 명령어
 const axios = require("axios"); // axios를 가져다 쓸거다.
 const cors = require("cors"); // 포트가 다른 두 서버를 연결
 const app = express();
-const dotenv = require("dotenv").config;
+const dotenv = require("dotenv").config();
 const NAVER_ID = process.env.NAVER_ID;
 const NAVER_SECRET_ID = process.env.NAVER_SECRET_ID;
 app.set("port", process.env.PORT || 8099);
@@ -15,7 +15,7 @@ app.get("/", (req, res) => {
 });
 
 // 중간 대리인 역할
-app.get("/book/:bookname", (req, res) => {
+app.get("https://keonwoo-naverbook.herokuapp.com/book/:bookname", (req, res) => {
   const queryTxt = encodeURIComponent(req.params.bookname);
   // console.log(req.params.bookname);
   axios({
@@ -31,7 +31,7 @@ app.get("/book/:bookname", (req, res) => {
   // res.json({ book: "express" });
 });
 
-app.get("/book02", (req, res) => {
+app.get("https://keonwoo-naverbook.herokuapp.com/book02", (req, res) => {
   const queryTxt = encodeURIComponent(req.query.bookname);
   axios({
     url: `https://openapi.naver.com/v1/search/book.json?query=${queryTxt}`,
