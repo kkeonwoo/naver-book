@@ -31,18 +31,18 @@ app.get("/book/:bookname", (req, res) => {
   // res.json({ book: "express" });
 });
 
-app.get("/book02", (req, res) => {
-  const queryTxt = encodeURIComponent(req.query.bookname);
-  axios({
-    url: `https://openapi.naver.com/v1/search/book.json?query=${queryTxt}`,
-    headers: {
-      "X-Naver-Client-Id": NAVER_ID,
-      "X-Naver-Client-Secret": NAVER_SECRET_ID,
-    },
-  }).then(function (response) {
-    res.json(response.data);
-  });
-});
+// app.get("/book02", (req, res) => {
+//   const queryTxt = encodeURIComponent(req.query.bookname);
+//   axios({
+//     url: `https://openapi.naver.com/v1/search/book.json?query=${queryTxt}`,
+//     headers: {
+//       "X-Naver-Client-Id": NAVER_ID,
+//       "X-Naver-Client-Secret": NAVER_SECRET_ID,
+//     },
+//   }).then(function (response) {
+//     res.json(response.data);
+//   });
+// });
 
 // app.get("/login", (req, res) => {
 //   console.log(req.query);
