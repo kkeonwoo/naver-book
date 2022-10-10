@@ -16,7 +16,7 @@ app.get("/", (req, res) => {
 
 // 중간 대리인 역할
 app.get("/book/:bookname", (req, res) => {
-  const queryTxt = encodeURIComponent(req.params.bookname);
+  const queryTxt = encodeURIComponent(req.query.bookname);
   // console.log(req.params.bookname);
   axios({
     url: `https://openapi.naver.com/v1/search/book.json?query=${queryTxt}`,
@@ -31,7 +31,7 @@ app.get("/book/:bookname", (req, res) => {
   // res.json({ book: "express" });
 });
 
-// app.get("https://keonwoo-naverbook.herokuapp.com/book02", (req, res) => {
+// app.get("/book02", (req, res) => {
 //   const queryTxt = encodeURIComponent(req.query.bookname);
 //   axios({
 //     url: `https://openapi.naver.com/v1/search/book.json?query=${queryTxt}`,
